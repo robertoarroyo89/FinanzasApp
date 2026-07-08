@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* "Papel y billete": fondo papel cálido, verde billete como primario, oro discreto */
+  --bg: 247 246 242;
+  --surface: 255 255 255;
+  --raised: 241 240 234;
+  --ink: 20 32 27;
+  --muted: 96 110 102;
+  --line: 226 224 214;
+  --primary: 23 105 74;
+  --primary-ink: 255 255 255;
+  --income: 22 138 91;
+  --expense: 197 84 74;
+  --gold: 176 133 47;
+}
+
+.dark {
+  --bg: 11 16 14;
+  --surface: 19 26 22;
+  --raised: 27 36 31;
+  --ink: 236 241 236;
+  --muted: 147 163 154;
+  --line: 39 50 44;
+  --primary: 61 178 128;
+  --primary-ink: 8 20 14;
+  --income: 78 191 141;
+  --expense: 229 117 107;
+  --gold: 210 169 76;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-bg text-ink font-body antialiased;
+}
+
+/* Las cifras siempre alineadas: tipografía tabular en todo lo numérico */
+.tabular { font-variant-numeric: tabular-nums; }
+
+*:focus-visible {
+  outline: 2px solid rgb(var(--primary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgb(var(--line)); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
